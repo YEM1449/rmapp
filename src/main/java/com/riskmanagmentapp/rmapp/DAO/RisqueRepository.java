@@ -29,4 +29,15 @@ public interface RisqueRepository extends JpaRepository<Risque,Long> {
     @Query("Select r from Risque r where r.intitule like :x")
     public Page<Risque> rechercheIntitule(@Param("x")String mc , Pageable pageable);
 
+    @Query("Select r from Risque r where r.criticiteNet >= :x")
+    public Page<Risque> rechercheRisqueNetSup(@Param("x")int mc , Pageable pageable);
+
+    @Query("Select r from Risque r where r.criticiteNet <= :x")
+    public Page<Risque> rechercheRisqueNetInf(@Param("x")int mc , Pageable pageable);
+
+    @Query("Select r from Risque r where r.criticiteNet = :x")
+    public Page<Risque> rechercheRisqueNet(@Param("x")int mc , Pageable pageable);
+
+    @Query("Select r from Risque r where r.classementNet like :x")
+    public Page<Risque> rechercheClassementNet(@Param("x")String mc , Pageable pageable);
 }

@@ -94,4 +94,32 @@ public class RisqueService {
             @RequestParam(name="size",defaultValue = "5") int size ) {
         return risqueRepository.rechercheProcessus("%" + mc + "%", PageRequest.of(page, size));
     }
+    @RequestMapping(value ="/chercherRisqueByCriticiteNetSup",method = RequestMethod.GET)
+    public Page<Risque> rechercheCriticiteNetSup(
+            @RequestParam(name="mc",defaultValue = "") int mc,
+            @RequestParam(name="page",defaultValue = "0")int page,
+            @RequestParam(name="size",defaultValue = "5") int size ) {
+        return risqueRepository.rechercheRisqueNetSup(mc, PageRequest.of(page, size));
+    }
+    @RequestMapping(value ="/chercherRisqueByCriticiteNetInf",method = RequestMethod.GET)
+    public Page<Risque> rechercheCriticiteNetInf(
+            @RequestParam(name="mc",defaultValue = "") int mc,
+            @RequestParam(name="page",defaultValue = "0")int page,
+            @RequestParam(name="size",defaultValue = "5") int size ) {
+        return risqueRepository.rechercheRisqueNetSup(mc, PageRequest.of(page, size));
+    }
+    @RequestMapping(value ="/chercherRisqueByCriticiteNet",method = RequestMethod.GET)
+    public Page<Risque> rechercheCriticiteNet(
+            @RequestParam(name="mc",defaultValue = "") int mc,
+            @RequestParam(name="page",defaultValue = "0")int page,
+            @RequestParam(name="size",defaultValue = "5") int size ) {
+        return risqueRepository.rechercheRisqueNetSup(mc, PageRequest.of(page, size));
+    }
+    @RequestMapping(value ="/chercherRisqueByClassement",method = RequestMethod.GET)
+    public Page<Risque> rechercheClassement(
+            @RequestParam(name="mc",defaultValue = "") String mc,
+            @RequestParam(name="page",defaultValue = "0")int page,
+            @RequestParam(name="size",defaultValue = "5") int size ) {
+        return risqueRepository.rechercheClassementNet("%" + mc + "%", PageRequest.of(page, size));
+    }
 }
